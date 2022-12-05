@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import POM.*;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,9 +12,8 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class StepDefinition {
+public class StepDefinition{
     private WebDriver driver;
-
     private HomePage homePage;
 
     private RumahTanggaCategoryPage rumahTanggaCategoryPage;
@@ -25,13 +26,24 @@ public class StepDefinition {
 
     private ProductCheckoutPage productCheckoutPage;
 
-    @Given("akses {string}")
-    public void akses(String url) {
+    @Before
+    public void beforeScenario(){
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
         driver= new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
+        System.out.println("This will run before the Scenario");
+    }
+
+    @After
+    public void afterScenario(){
+        driver.quit();
+        System.out.println("This will run after the Scenario");
+    }
+
+    @Given("akses {string}")
+    public void akses(String url) {
         driver.get(url);
     }
     @When("Klik Kategori Belanja lalu {string}")
@@ -90,6 +102,5 @@ public class StepDefinition {
     public void verify_error_login_message() {
         productCheckoutPage.waitUntilElementVisible(productCheckoutPage.getLoginErrorMsg(), driver);
         Assert.assertEquals(productCheckoutPage.getLoginErrorMsgText(),"Alamat e-mail atau nomor telepon dan password salah, jika Anda lupa kata sandi klik di sini.");
-        driver.quit();
     }
 }
