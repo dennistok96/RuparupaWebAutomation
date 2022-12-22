@@ -1,12 +1,12 @@
 package POM;
 
-import basepackage.Base;
+import basepackage.BaseObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProductCartPage extends Base {
+public class ProductCartPage extends BaseObject {
     private WebDriver driver;
 
     @FindBy(xpath = "//div[@class='joyride-tooltip__buttons']/button")
