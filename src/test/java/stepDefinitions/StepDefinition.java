@@ -37,7 +37,7 @@ public class StepDefinition {
     @When("Pilih berdasarkan Promo {string}")
     public void pilih_berdasarkan_promo(String promoName) {
         rumahTanggaCategoryPage=new RumahTanggaCategoryPage(hooks.getDriver());
-        rumahTanggaCategoryPage.scrollToText(rumahTanggaCategoryPage.getHeaderByName("Promo"),hooks.getDriver());
+        rumahTanggaCategoryPage.scrollToText(rumahTanggaCategoryPage.getHeaderByName("Promo"));
         rumahTanggaCategoryPage.clickPromoListByName(promoName);
         this.promoName=promoName;
     }
@@ -48,34 +48,34 @@ public class StepDefinition {
     }
     @When("Klik produk yang muncul pada baris pertama")
     public void klik_produk_yang_muncul_pada_baris_pertama() {
-        rumahTanggaCategoryPage.waitUntilTextToBePresentInElement(rumahTanggaCategoryPage.getPromotionTagLabelFirstProduct(),hooks.getDriver(),promoName);
+        rumahTanggaCategoryPage.waitUntilTextToBePresentInElement(rumahTanggaCategoryPage.getPromotionTagLabelFirstProduct(),promoName);
         rumahTanggaCategoryPage.clickFirstProduct();
 
     }
     @When("Pada halaman produk, klik button Tambah ke keranjang")
     public void pada_halaman_produk_klik_button_tambah_ke_keranjang() {
         detailProductPage= new DetailProductPage(hooks.getDriver());
-        detailProductPage.waitUntilElementVisible(detailProductPage.getCicilanPopupBtn(),hooks.getDriver());
+        detailProductPage.waitUntilElementVisible(detailProductPage.getCicilanPopupBtn());
         detailProductPage.clickCicilanPopupBtn();
         detailProductPage.clickTambahKeKeranjangBtn();
 
     }
     @When("Klik button Lanjut ke Keranjang")
     public void klik_button_lanjut_ke_keranjang() {
-        detailProductPage.waitUntilElementVisible(detailProductPage.getLanjutKeKeranjangBtn(),hooks.getDriver());
+        detailProductPage.waitUntilElementVisible(detailProductPage.getLanjutKeKeranjangBtn());
         detailProductPage.clickLanjutKeKeranjangBtn();
     }
     @When("Klik Sign In")
     public void klik_sign_in() {
         productCartPage= new ProductCartPage(hooks.getDriver());
-        productCartPage.waitUntilElementVisible(productCartPage.getCatatanPopupBtn(),hooks.getDriver());
+        productCartPage.waitUntilElementVisible(productCartPage.getCatatanPopupBtn());
         productCartPage.clickCatatanPopupBtn();
         productCartPage.clickLanjutKePembayaranBtn();
     }
     @When("Masukkan random email dan password")
     public void masukkan_random_email_dan_password() {
         productCheckoutPage= new ProductCheckoutPage(hooks.getDriver());
-        productCheckoutPage.waitUntilElementVisible(productCheckoutPage.getSignInBtn(),hooks.getDriver());
+        productCheckoutPage.waitUntilElementVisible(productCheckoutPage.getSignInBtn());
         productCheckoutPage.setEmailTextField("asdasdas@gmail.com");
         productCheckoutPage.setPasswordTextField("asdasdas123123");
         productCheckoutPage.clickSignInBtn();
@@ -83,7 +83,7 @@ public class StepDefinition {
     }
     @Then("Verify error login message")
     public void verify_error_login_message() {
-        productCheckoutPage.waitUntilElementVisible(productCheckoutPage.getLoginErrorMsg(),hooks.getDriver());
+        productCheckoutPage.waitUntilElementVisible(productCheckoutPage.getLoginErrorMsg());
         Assert.assertEquals(productCheckoutPage.getLoginErrorMsgText(),"Alamat e-mail atau nomor telepon dan password salah, jika Anda lupa kata sandi klik di sini.");
     }
 }

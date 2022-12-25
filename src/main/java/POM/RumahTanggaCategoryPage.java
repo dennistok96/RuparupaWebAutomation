@@ -25,7 +25,7 @@ public class RumahTanggaCategoryPage extends BaseObject {
 
 
     public void scrollToTextElement(WebElement element){
-        this.scrollToText(element,driver);
+        this.scrollToText(element);
     }
 
     public void clickPromoListByName(String promoName){
@@ -76,6 +76,7 @@ public class RumahTanggaCategoryPage extends BaseObject {
     }
 
     public RumahTanggaCategoryPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         PageFactory.initElements(driver,this);//initialize  all annotation
     }

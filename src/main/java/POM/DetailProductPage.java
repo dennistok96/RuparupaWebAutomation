@@ -44,6 +44,7 @@ public class DetailProductPage extends BaseObject {
 
 
     public DetailProductPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         PageFactory.initElements(driver,this);//initialize  all annotation
     }

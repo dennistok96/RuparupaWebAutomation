@@ -55,6 +55,7 @@ public class ProductCheckoutPage extends BaseObject {
     }
 
     public ProductCheckoutPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         PageFactory.initElements(driver,this);//initialize  all annotation
     }

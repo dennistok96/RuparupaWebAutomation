@@ -35,6 +35,7 @@ public class ProductCartPage extends BaseObject {
 
 
     public ProductCartPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         PageFactory.initElements(driver,this);//initialize  all annotation
     }
