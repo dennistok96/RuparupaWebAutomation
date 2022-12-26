@@ -7,9 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProductCheckoutPage extends BaseObject {
-    private WebDriver driver;
-
-
     @FindBy(xpath = "//input[@name='email']")
     private WebElement emailTextField;
 

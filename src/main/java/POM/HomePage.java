@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BaseObject {
-    private WebDriver driver;
-
     public WebElement getKategoryByName(String kategoryName){
         return driver.findElement(By.xpath("//div[@class='category-text category-text__ruparupa ui-text-3'][text()='"+kategoryName+"']"));
     }

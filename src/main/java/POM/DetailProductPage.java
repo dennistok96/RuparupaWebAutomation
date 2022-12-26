@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class DetailProductPage extends BaseObject {
-    private WebDriver driver;
-
     @FindBy(xpath = "//button[@class='btn btn-m kredivo__coachmark-close-button']")
     private WebElement cicilanPopupBtn;
 

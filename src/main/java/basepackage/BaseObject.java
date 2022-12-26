@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseObject {
-    WebDriver driver;
+    protected WebDriver driver;
     public BaseObject(WebDriver driver){
         this.driver=driver;
     }

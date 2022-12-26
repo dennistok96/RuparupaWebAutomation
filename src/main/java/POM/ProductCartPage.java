@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ProductCartPage extends BaseObject {
-    private WebDriver driver;
-
     @FindBy(xpath = "//div[@class='joyride-tooltip__buttons']/button")
     private WebElement catatanPopupBtn;
 

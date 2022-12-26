@@ -9,8 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class RumahTanggaCategoryPage extends BaseObject {
-    private WebDriver driver;
-
     @FindBy(id = "label-content-arrow")
     private WebElement promoList;
 
