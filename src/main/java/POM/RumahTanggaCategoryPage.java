@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class RumahTanggaCategoryPage extends BaseObject {
     @FindBy(id = "label-content-arrow")
@@ -36,6 +37,10 @@ public class RumahTanggaCategoryPage extends BaseObject {
 
     @FindBy(xpath = "//select[@name='order']")
     private WebElement urutDropdown;
+
+
+    @FindBy(xpath = "//h1[text()='Rumah Tangga']")
+    private WebElement rumahTanggaCategorySearchLabel;
 
 
     public WebElement getUrutLabel(){
@@ -78,6 +83,22 @@ public class RumahTanggaCategoryPage extends BaseObject {
         this.driver = driver;
         PageFactory.initElements(driver,this);//initialize  all annotation
     }
+
+    public void scrollIntoCategory(String category){
+        if("Rumah Tangga".equalsIgnoreCase(category)){
+            scrollToText(rumahTanggaCategorySearchLabel);
+
+        }
+
+    }
+
+    public void verifyCategoryMessage(String category){
+        if("Rumah Tangga".equalsIgnoreCase(category)){
+            Assert.assertEquals(rumahTanggaCategorySearchLabel.getText(),category);
+        }
+
+    }
+
 
 
 

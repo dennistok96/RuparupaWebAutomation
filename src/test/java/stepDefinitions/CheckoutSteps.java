@@ -1,15 +1,14 @@
 package stepDefinitions;
-
 import POM.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-public class StepDefinition {
+public class CheckoutSteps {
     private Hooks hooks;
 
-    public StepDefinition(Hooks hooks) {
+    public CheckoutSteps(Hooks hooks) {
         this.hooks = hooks;
     }
 
