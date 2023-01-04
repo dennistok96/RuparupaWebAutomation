@@ -1,9 +1,10 @@
-package parallel;
+package parallel.steps;
 import POM.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+import parallel.appHooks.Hooks;
 
 public class CheckoutSteps {
     private Hooks hooks;

@@ -1,8 +1,9 @@
-package parallel;
+package parallel.steps;
 
 import POM.HomePage;
 import POM.RumahTanggaCategoryPage;
 import io.cucumber.java.en.Then;
+import parallel.appHooks.Hooks;
 
 public class ProductSteps {
     private Hooks hooks;

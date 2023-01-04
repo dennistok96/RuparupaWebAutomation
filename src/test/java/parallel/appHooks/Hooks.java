@@ -1,4 +1,4 @@
-package parallel;
+package parallel.appHooks;
 
 import com.aventstack.extentreports.service.ExtentTestManager;
 import io.cucumber.java.After;
