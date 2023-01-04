@@ -1,5 +1,6 @@
 package parallel.steps;
 import POM.*;
+import factory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,17 +28,17 @@ public class CheckoutSteps {
 
     @Given("akses {string}")
     public void akses(String url) {
-        hooks.getDriver().get(url);
+        DriverFactory.getDriver().get(url);
 
     }
     @When("Klik Kategori Belanja lalu {string}")
     public void klik_kategori_belanja_lalu(String kategory) {
-        homePage= new HomePage(hooks.getDriver());
+        homePage= new HomePage(DriverFactory.getDriver());
         homePage.clickKategoryByName(kategory);
     }
     @When("Pilih berdasarkan Promo {string}")
     public void pilih_berdasarkan_promo(String promoName) {
-        rumahTanggaCategoryPage=new RumahTanggaCategoryPage(hooks.getDriver());
+        rumahTanggaCategoryPage=new RumahTanggaCategoryPage(DriverFactory.getDriver());
         rumahTanggaCategoryPage.scrollToText(rumahTanggaCategoryPage.getHeaderByName("Promo"));
         rumahTanggaCategoryPage.clickPromoListByName(promoName);
         this.promoName=promoName;
@@ -55,7 +56,7 @@ public class CheckoutSteps {
     }
     @When("Pada halaman produk, klik button Tambah ke keranjang")
     public void pada_halaman_produk_klik_button_tambah_ke_keranjang() {
-        detailProductPage= new DetailProductPage(hooks.getDriver());
+        detailProductPage= new DetailProductPage(DriverFactory.getDriver());
         detailProductPage.waitUntilElementVisible(detailProductPage.getCicilanPopupBtn());
         detailProductPage.clickCicilanPopupBtn();
         detailProductPage.clickTambahKeKeranjangBtn();
@@ -68,14 +69,14 @@ public class CheckoutSteps {
     }
     @When("Klik Sign In")
     public void klik_sign_in() {
-        productCartPage= new ProductCartPage(hooks.getDriver());
+        productCartPage= new ProductCartPage(DriverFactory.getDriver());
         productCartPage.waitUntilElementVisible(productCartPage.getCatatanPopupBtn());
         productCartPage.clickCatatanPopupBtn();
         productCartPage.clickLanjutKePembayaranBtn();
     }
     @When("Masukkan random email dan password")
     public void masukkan_random_email_dan_password() {
-        productCheckoutPage= new ProductCheckoutPage(hooks.getDriver());
+        productCheckoutPage= new ProductCheckoutPage(DriverFactory.getDriver());
         productCheckoutPage.waitUntilElementVisible(productCheckoutPage.getSignInBtn());
         productCheckoutPage.setEmailTextField("asdasdas@gmail.com");
         productCheckoutPage.setPasswordTextField("asdasdas123123");

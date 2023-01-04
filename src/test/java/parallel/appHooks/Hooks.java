@@ -1,6 +1,7 @@
 package parallel.appHooks;
 
 import com.aventstack.extentreports.service.ExtentTestManager;
+import factory.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -8,48 +9,46 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import util.ConfigReader;
 
 import java.time.Duration;
+import java.util.Properties;
 
 public class Hooks {
+    private DriverFactory driverFactory;
     private WebDriver driver;
+    private ConfigReader configReader;
+    Properties prop;
 
-    @Before
-    public void setUp() {
-        setDriver();
+    @Before(order = 0)
+    public void getProperty() {
+        configReader = new ConfigReader();
+        prop = configReader.init_prop();
     }
 
-    public void setDriver() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
-        driver= new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-        System.out.println("This will run before the Scenario");
+    @Before(order = 1)
+    public void launchBrowser() {
+        String browserName = prop.getProperty("browser");
+        driverFactory = new DriverFactory();
+        driver = driverFactory.init_driver(browserName);
+
+
+
     }
 
-    public WebDriver getDriver() {
-        return driver;
+    @After(order = 0)
+    public void quitBrowser() {
+        driver.quit();
     }
 
-    @After
+    @After(order = 1)
     public void tearDown(Scenario scenario) {
-        System.out.println("Close browser");
-        takeScreenshot(scenario);
-        getDriver().quit();
-    }
+        if (scenario.isFailed()) {
+            // take screenshot:
+            String screenshotName = scenario.getName().replaceAll(" ", "_");
+            byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(sourcePath, "image/png", screenshotName);
 
-
-    public void takeScreenshot(Scenario scenario)
-    {
-        if(scenario.isFailed())
-        {
-            ExtentTestManager.getTest().addScreenCaptureFromBase64String(getBase64Screenshot());
         }
-    }
-
-    public String getBase64Screenshot()
-    {
-        return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BASE64);
     }
 }
