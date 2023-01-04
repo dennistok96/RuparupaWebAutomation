@@ -1,4 +1,4 @@
-package stepDefinitions;
+package parallel;
 import POM.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,6 +27,7 @@ public class CheckoutSteps {
     @Given("akses {string}")
     public void akses(String url) {
         hooks.getDriver().get(url);
+
     }
     @When("Klik Kategori Belanja lalu {string}")
     public void klik_kategori_belanja_lalu(String kategory) {

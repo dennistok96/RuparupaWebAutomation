@@ -1,4 +1,4 @@
-package stepDefinitions;
+package parallel;
 
 import com.aventstack.extentreports.service.ExtentTestManager;
 import io.cucumber.java.After;

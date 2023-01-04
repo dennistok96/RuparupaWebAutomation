@@ -1,4 +1,4 @@
-package stepDefinitions;
+package parallel;
 
 import POM.HomePage;
 import POM.RumahTanggaCategoryPage;
