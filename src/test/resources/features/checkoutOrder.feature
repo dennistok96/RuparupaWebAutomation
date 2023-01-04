@@ -2,7 +2,7 @@ Feature: verify checkout order functionality
 
   Background: User is logged in
     Given akses "https://www.ruparupa.com"
-
+  @checkout
   Scenario: verify checkout order with invalid data
     When Klik Kategori Belanja lalu "Rumah Tangga"
     And Pilih berdasarkan Promo "Buy 1 Get 1"
