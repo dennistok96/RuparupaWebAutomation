@@ -4,10 +4,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
-@CucumberOptions(features = "src/test/resources/features",glue = "parallel",plugin = {"pretty",
+@CucumberOptions(features = "@target/failedrerun.txt",glue = "parallel",plugin = {"pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         "rerun:target/failedrerun.txt"})
-public class ParallelRunner extends AbstractTestNGCucumberTests {
+public class FailedRunner extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {
