@@ -6,6 +6,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(features = "@target/failedrerun.txt",glue = "parallel",plugin = {"pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+        "timeline:test-output-thread/",
         "rerun:target/failedrerun.txt"})
 public class FailedRunnerTest extends AbstractTestNGCucumberTests {
     @Override
