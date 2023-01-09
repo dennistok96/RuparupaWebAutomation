@@ -15,7 +15,8 @@ This source code is used to automate web platform of ruparupa.com
 
 ```python
 1.cd <path to workspace project>
-2.mvn test
+2.mvn test -Dcucumber.filter.tags="not @Skip or @Regression"
+
 
 
 ```
