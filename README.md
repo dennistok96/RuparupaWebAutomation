@@ -1,22 +1,16 @@
-## RuparupaWebAutomation
+## APIAutomation
 
-This source code is used to automate web platform of ruparupa.com
+This source code is used to automate API platform of https://api.punkapi.com
 
 ## Prerequisites
 
 1. JDK 1.8 or above
-2. Apache Maven
-3. IDE(Intelij/Eclipse)
-4. Git
-
-
+2. Katalon studio
 
 ## How to use
 
 ```python
-1.cd <path to workspace project>
-2.mvn test -Dcucumber.filter.tags="not @Skip or @Regression"
-
-
+1.open Katalon studio, navigate to test suite folder
+2.run regression test suite
 
 ```
