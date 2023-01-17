@@ -7,6 +7,7 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import util.ConfigReader;
 
 import java.util.Properties;
@@ -41,7 +42,6 @@ public class Hooks {
     @After(order = 1)
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
-            // take screenshot:
             String screenshotName = scenario.getName().replaceAll(" ", "_");
             byte[] sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(sourcePath, "image/png", screenshotName);

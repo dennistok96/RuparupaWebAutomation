@@ -23,10 +23,6 @@ public class RumahTanggaCategoryPage extends BaseObject {
     }
 
 
-    public void scrollToTextElement(WebElement element){
-        this.scrollToText(element);
-    }
-
     public void clickPromoListByName(String promoName){
         WebElement element= this.getPromoListByName(promoName);
         element.click();
