@@ -16,6 +16,11 @@ public class DetailProductPage extends BaseObject {
     @FindBy(xpath = "//div[@class='added-to-cart']/button[@class='btn btn-primary btn-cart bold']")
     private WebElement lanjutKeKeranjangBtn;
 
+
+    @FindBy(xpath = "//button[text()='Pilih Metode Pemesanan']")
+    private WebElement pilihMetodePemesananBtn;
+
+
     public WebElement getLanjutKeKeranjangBtn() {
         return lanjutKeKeranjangBtn;
     }
@@ -38,6 +43,14 @@ public class DetailProductPage extends BaseObject {
 
     public void clickTambahKeKeranjangBtn(){
         this.getTambahKeKeranjangBtn().click();
+    }
+
+    public WebElement getPilihMetodePemesananBtn() {
+        return pilihMetodePemesananBtn;
+    }
+
+    public void clickPilihMetodePemesananBtn(){
+        this.getPilihMetodePemesananBtn().click();
     }
 
 

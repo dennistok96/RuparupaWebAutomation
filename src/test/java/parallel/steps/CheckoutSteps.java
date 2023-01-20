@@ -60,6 +60,7 @@ public class CheckoutSteps {
         detailProductPage.waitUntilElementVisible(detailProductPage.getCicilanPopupBtn());
         detailProductPage.clickCicilanPopupBtn();
         detailProductPage.clickTambahKeKeranjangBtn();
+        detailProductPage.clickPilihMetodePemesananBtn();
 
     }
     @When("Klik button Lanjut ke Keranjang")
